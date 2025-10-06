@@ -14,7 +14,7 @@
 </header>
 
 
-  <h1>📝 Admin Panel - Manage Notices</h1>
+  <h1> Admin Panel - Manage Notices</h1>
 
   <!-- Form -->
   <form id="noticeForm">
@@ -29,14 +29,14 @@
   <hr>
 
   <!-- Notice List -->
-  <h2>📢 Posted Notices</h2>
+  <h2> Posted Notices</h2>
   <div id="notice-board"></div>
 
   <button onclick="logout()">Logout</button>
 
   <script src="script.js"></script>
   <script>
-    checkAuth("admin"); // ✅ only admin can access
+    checkAuth("admin"); //  only admin can access
 
     // Convert file to Base64
     const toBase64 = (file) => new Promise((resolve, reject) => {
@@ -64,11 +64,11 @@
         div.innerHTML = `
           <h3>${notice.title}</h3>
           <p>${notice.content}</p>
-          <small>📅 ${new Date(notice.timestamp).toLocaleString()}</small><br>
+          <small> ${new Date(notice.timestamp).toLocaleString()}</small><br>
           ${notice.image ? `<img src="${notice.image}" width="200"><br>` : ""}
           ${notice.pdf ? `<a href="${notice.pdf}" target="_blank" download="notice.pdf">📄 Open PDF</a><br>` : ""}
-          <button onclick="editNotice(${index})">✏️ Edit</button>
-          <button onclick="deleteNotice(${index})">🗑️ Delete</button>
+          <button onclick="editNotice(${index})"> Edit</button>
+          <button onclick="deleteNotice(${index})"> Delete</button>
         `;
         noticeBoard.appendChild(div);
       });
@@ -109,7 +109,7 @@
 
       localStorage.setItem("notices", JSON.stringify(notices));
 
-      alert(editIndex === "" ? "✅ Notice posted!" : "✏️ Notice updated!");
+      alert(editIndex === "" ? " Notice posted!" : " Notice updated!");
       document.getElementById("noticeForm").reset();
       document.getElementById("editIndex").value = "";
       loadNotices();
@@ -140,6 +140,7 @@
   </script>
 </body>
 </html>
+
 
 
 
