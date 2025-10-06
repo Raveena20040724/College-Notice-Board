@@ -1,0 +1,191 @@
+/* ===== Global Styles ===== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #380e07, #b87d31); /* deep blue gradient */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+/* ===== College Header (Fixed at Top) ===== */
+:root { 
+  --header-height-desktop: 100px; 
+  --header-height-mobile: 80px; 
+}
+
+.college-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background:linear-gradient(135deg, #c71f1f, #e7a20d);
+  border-bottom: 3px solid #070703;
+  width: 100%;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.college-logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: rgb(243, 243, 243);
+  padding: 5px;
+  flex-shrink: 0;   /* prevent shrinking */
+}
+
+.college-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+/* Add space so content isn’t hidden behind fixed header */
+body {
+  padding-top: var(--header-height-desktop);
+}
+
+/* ===== Responsive (Mobile) ===== */
+@media (max-width: 600px) {
+  .college-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .college-logo {
+    height: 50px;
+    width: 50px;
+  }
+
+  .college-name {
+    font-size: 16px;
+  }
+
+  body {
+    padding-top: var(--header-height-mobile);
+  }
+}
+
+/* Headings */
+h1, h2, h3 {
+  text-align: center;
+  color: #ffeb3b; /* yellow highlight */
+  margin: 10px 0;
+}
+
+/* Notice Container */
+#notice-board {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Each Notice */
+.notice {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+.notice:hover {
+  transform: scale(1.02);
+}
+
+/* Forms */
+form {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+input, textarea, button {
+  width: 95%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+button {
+  background: #ff9800;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #f57c00;
+}
+
+/* Edit/Delete Buttons */
+.notice button {
+  width: auto;
+  margin-right: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+.notice button:nth-child(1) { background: #4caf50; } /* Edit */
+.notice button:nth-child(1):hover { background: #388e3c; }
+.notice button:nth-child(2) { background: #f44336; } /* Delete */
+.notice button:nth-child(2):hover { background: #c62828; }
+
+/* Images */
+.notice img {
+  border-radius: 8px;
+  margin-top: 8px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Links */
+.notice a {
+  display: inline-block;
+  margin-top: 6px;
+  color: #03a9f4;
+  text-decoration: none;
+  font-weight: bold;
+}
+.notice a:hover {
+  text-decoration: underline;
+}
+
+/* Logout Button */
+button[onclick="logout()"] {
+  background: #e91e63;
+}
+button[onclick="logout()"]:hover {
+  background: #ad1457;
+}
+
+

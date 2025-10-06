@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Notice Board - Student</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== College Header ===== -->
+  <header class="college-header">
+  <img src="images/logo.png" alt="College Logo" class="college-logo">
+  <h1 class="college-name">SIR ISSAC NEWTON COLLEGE OF ENGINEERING AND TECHNOLOGY</h1>
+</header>
+
+
+  <h1>📢 Digital Notice Board</h1>
+
+  <div id="notice-board"></div>
+
+  <button onclick="logout()">Logout</button>
+
+  <script src="script.js"></script>
+  <script>
+    checkAuth("student");
+
+    // Function to show "x minutes ago"
+    function timeAgo(dateString) {
+      const now = new Date();
+      const posted = new Date(dateString);
+      const diff = Math.floor((now - posted) / 1000); // seconds
+
+      if (diff < 60) return `${diff} seconds ago`;
+      if (diff < 3600) return `${Math.floor(diff/60)} minutes ago`;
+      if (diff < 86400) return `${Math.floor(diff/3600)} hours ago`;
+      return `${Math.floor(diff/86400)} days ago`;
+    }
+
+    function loadNotices() {
+      const notices = JSON.parse(localStorage.getItem("notices")) || [];
+      const noticeBoard = document.getElementById("notice-board");
+      noticeBoard.innerHTML = "";
+
+      if (notices.length === 0) {
+        noticeBoard.innerHTML = "<p>No notices available yet.</p>";
+        return;
+      }
+
+      notices.forEach((notice) => {
+        const div = document.createElement("div");
+        div.className = "notice";
+        div.innerHTML = `
+          <h2>${notice.title}</h2>
+          <p>${notice.content}</p>
+          <small>📅 Posted: ${timeAgo(notice.timestamp)}</small><br>
+          ${notice.image ? `<img src="${notice.image}" width="200" alt="Notice Image"><br>` : ""}
+          ${notice.pdf ? `<a href="${notice.pdf}" target="_blank" download="notice.pdf">📄 Open PDF</a><br>` : ""}
+        `;
+        noticeBoard.appendChild(div);
+      });
+    }
+
+    loadNotices();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
