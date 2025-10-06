@@ -82,11 +82,12 @@ function loadNotices() {
       const link = document.createElement("a");
       link.href = n.pdf;
       link.target = "_blank";
-      link.textContent = "📄 View PDF";
+      link.textContent = " View PDF";
       div.appendChild(link);
     }
 
     board.appendChild(div);
   });
 }
+
 
