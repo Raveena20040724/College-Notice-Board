@@ -13,7 +13,7 @@
 </header>
 
 
-  <h1>📢 Digital Notice Board</h1>
+  <h1> Digital Notice Board</h1>
 
   <div id="notice-board"></div>
 
@@ -51,7 +51,7 @@
         div.innerHTML = `
           <h2>${notice.title}</h2>
           <p>${notice.content}</p>
-          <small>📅 Posted: ${timeAgo(notice.timestamp)}</small><br>
+          <small> Posted: ${timeAgo(notice.timestamp)}</small><br>
           ${notice.image ? `<img src="${notice.image}" width="200" alt="Notice Image"><br>` : ""}
           ${notice.pdf ? `<a href="${notice.pdf}" target="_blank" download="notice.pdf">📄 Open PDF</a><br>` : ""}
         `;
@@ -63,6 +63,7 @@
   </script>
 </body>
 </html>
+
 
 
 
